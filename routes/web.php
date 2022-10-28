@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\FigmaApiController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,12 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', HomeController::class);
 
 //
-Route::get('/figma/callback',function (\Illuminate\Http\Request $request){
-
-    return 'Test';
-});
+Route::get('/figma/callback',[ FigmaApiController::class, 'callback']);
